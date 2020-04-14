@@ -11,6 +11,12 @@
 [servers]
 server1 ansible_host=178.128.85.154
 
+[locustmaster]
+locustmaster ansible_host=128.199.186.189
+
+[locustslaves]
+locustslaves1 ansible_host=128.199.79.65
+
 ##########################################################################
 # Makes sure we use Python 3 (/usr/bin/python3) on remote hosts.
 # [servers:vars] sets global values for all nodes in the "servers" group.

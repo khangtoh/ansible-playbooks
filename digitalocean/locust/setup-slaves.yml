@@ -1,0 +1,24 @@
+#################################################
+# DO Community Playbooks: Initial Server Setup
+#################################################
+---
+- hosts: locustslaves
+  become: true
+  vars_files:
+    - vars/slaves.yml
+  roles:
+    - calvinbui.ansible_pip
+    
+  tasks:
+  # Install Packages
+    - name: Update apt
+      apt: update_cache=yes
+
+    - name: Install Locustio
+      pip: name=locustio
+      
+    - name: Install geventhttpclient
+      pip: name=geventhttpclient
+ 
+    - name: Install BeautifulSoup4
+      pip: name=beautifulsoup4
