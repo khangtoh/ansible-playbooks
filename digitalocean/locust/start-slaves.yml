@@ -1,0 +1,9 @@
+---
+- hosts: locustslaves
+  become: true
+  vars_files:
+    - vars/slaves.yml
+  tasks:
+    - name: start locust slaves
+      script: /home/ubuntu/locust_slaves.sh
+

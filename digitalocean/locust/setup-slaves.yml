@@ -22,3 +22,6 @@
  
     - name: Install BeautifulSoup4
       pip: name=beautifulsoup4
+
+    - name: Install python-dotenv
+      pip: name=python-dotenv

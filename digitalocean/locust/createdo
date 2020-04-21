@@ -1,0 +1,1 @@
+ doctl compute droplet create sg1-locustslave10 --image=62219507 --region=sgp1 --size=s-1vcpu-2gb --ssh-key=66:ae:d3:c5:5f:a6:98:37:d9:c8:57:fe:f7:77:34:7c

@@ -12,10 +12,12 @@
 server1 ansible_host=178.128.85.154
 
 [locustmaster]
-locustmaster ansible_host=128.199.186.189
+128.199.186.189
 
 [locustslaves]
-locustslaves1 ansible_host=128.199.79.65
+128.199.79.65
+159.89.195.135
+157.230.255.5
 
 ##########################################################################
 # Makes sure we use Python 3 (/usr/bin/python3) on remote hosts.

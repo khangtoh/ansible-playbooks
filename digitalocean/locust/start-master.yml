@@ -1,0 +1,9 @@
+---
+- hosts: locustmaster
+  become: true
+  vars_files:
+    - vars/master.yml
+  tasks:
+    - name: start locust master
+      script: /home/ubuntu/locust_master.sh
+

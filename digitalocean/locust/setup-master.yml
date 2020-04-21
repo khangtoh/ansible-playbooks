@@ -23,3 +23,6 @@
 
     - name: Install BeautifulSoup4
       pip: name=beautifulsoup4
+
+    - name: Install sentry
+      pip: name=locustio

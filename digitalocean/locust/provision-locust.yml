@@ -1,0 +1,35 @@
+---
+
+- hosts: locustslaves locustmaster
+  become: true
+  vars_files:
+    - vars/slaves.yml
+  tasks:
+    - name: copy locust file
+      copy:
+        src: locustfiles/locustfile.py
+        dest: /home/ubuntu/locustfile.py
+        owner: ubuntu
+        group: ubuntu
+        mode: 0744
+    - name: copy .env 
+      copy:
+        src: locustfiles/.env
+        dest: /home/ubuntu/.env
+        owner: ubuntu
+        group: ubuntu
+        mode: 0744
+    - name: create start locust as master 
+      copy:
+        content: "locust -f locustfile.py --master"
+        dest: /home/ubuntu/locust_master.sh
+        owner: ubuntu
+        group: ubuntu
+        mode: 0744     
+    - name: create start locust as slave 
+      copy:
+        content: "locust -f locustfile.py --slave --master-host={{ hostvars[inventory_hostname].groups['locustmaster'][0] }}"
+        dest: /home/ubuntu/locust_slave.sh
+        owner: ubuntu
+        group: ubuntu
+        mode: 0744  

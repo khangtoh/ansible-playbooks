@@ -6,10 +6,8 @@
     - locustmaster 
     - locustslaves
   become: true
-  ansible_user: root
   vars_files:
     - vars/default.yml
-
   tasks:
     - name: Install Prerequisites
       apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
@@ -67,5 +65,4 @@
     - name: UFW - Deny all other incoming traffic by default
       ufw:
         state: enabled
-        policy: deny
-        direction: incoming
+        policy: allow
